@@ -155,7 +155,7 @@ def clear_airtable():
         }
         # print(update_data)
         update_url = f'{tableUrl}/{record_id}'
-        requests.patch(update_url, headers=headers, json=update_data,proxies=proxies) 
+        requests.patch(update_url, headers=headers, json=update_data ) 
         time.sleep(0.2)  # 放慢速度，embeded table 才能够实时响应 
      
     print("已经清空表格了！")
