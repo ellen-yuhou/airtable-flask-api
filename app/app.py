@@ -59,7 +59,7 @@ def update_airtable_Company():
     }
 }
 
-    response = requests.patch(url, headers=headers, data=json.dumps(data),proxies=proxies)
+    response = requests.patch(url, headers=headers, data=json.dumps(data) )
 
     # Update a record 
     print("Updating company columns...")
@@ -96,7 +96,7 @@ def update_airtable_Manager():
         "fields": updated_fields
     }
 
-    response = requests.patch(url, headers=headers, data=json.dumps(data),proxies=proxies)
+    response = requests.patch(url, headers=headers, data=json.dumps(data) )
  
     if response.status_code == 200:
         print("Manager updated successfully!")   
@@ -126,7 +126,7 @@ def update_airtable_profile():
         "fields": updated_fields
     }
     try:
-         response = requests.patch(url, headers=headers, data=json.dumps(data),proxies=proxies) 
+         response = requests.patch(url, headers=headers, data=json.dumps(data) ) 
          if response.status_code == 200: 
             print("Profile updated successfully!")   
          else: 
@@ -139,7 +139,7 @@ def update_airtable_profile():
 @app.route("/clearTable", methods=["GET"])
 def clear_airtable(): 
     # 首先获取所有记录
-    response = requests.get(tableUrl, headers=headers,proxies=proxies)
+    response = requests.get(tableUrl, headers=headers )
     # print("response: ", response.json())
     records = response.json().get('records', [])
     # print("records: ",records)
@@ -176,7 +176,7 @@ def update_airtable_email():
         "fields": updated_fields
     }
 
-    response = requests.patch(url, headers=headers, data=json.dumps(data),proxies=proxies)
+    response = requests.patch(url, headers=headers, data=json.dumps(data) )
 
     if response.status_code == 200:
         print("Profile updated successfully!")  
